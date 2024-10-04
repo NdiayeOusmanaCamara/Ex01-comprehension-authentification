@@ -1,0 +1,41 @@
+1. Qu'est-ce que l'authentification ?
+
+L'authentification est le processus de vérification de l'identité d'un utilisateur ou d'un système avant de lui accorder l'accès à une application ou à une ressource protégée. Elle consiste à s'assurer que la personne est bien celle qu'elle prétend être. Les méthodes d'authentification courantes incluent l'utilisation de mots de passe, de jetons (tokens), d'empreintes digitales, et autres facteurs biométriques.
+2. Différence entre authentification et autorisation
+
+    Authentification : C'est le processus de vérification de l'identité de l'utilisateur, c'est-à-dire déterminer "qui" essaie d'accéder.
+    Autorisation : C'est le processus de détermination des permissions ou des droits d'accès de l'utilisateur authentifié, c'est-à-dire ce que l'utilisateur a le droit de faire une fois qu'il est authentifié.
+
+En résumé, l'authentification vérifie "qui vous êtes" et l'autorisation vérifie "ce que vous êtes autorisé à faire".
+3. Qu'est-ce qu'un JWT (JSON Web Token) ?
+
+Un JWT (JSON Web Token) est un jeton sécurisé qui est utilisé pour transmettre des informations entre deux parties, généralement un client et un serveur. Il est compact, auto-contenu et encodé en JSON. Un JWT se compose de trois parties :
+
+    Header (en-tête) : spécifie le type de jeton et l'algorithme de signature utilisé.
+    Payload (charge utile) : contient les informations ou les revendications (claims), comme l'identité de l'utilisateur ou les autorisations.
+    Signature : est utilisée pour vérifier que le jeton n'a pas été modifié.
+
+4. Pourquoi utiliser des tokens pour l’authentification ?
+
+L'utilisation de tokens comme les JWT pour l'authentification offre plusieurs avantages :
+
+    Stateless : Contrairement aux sessions traditionnelles, le serveur n'a pas besoin de stocker l'état de la session, ce qui allège la charge serveur.
+    Portabilité : Les tokens peuvent être facilement envoyés via des en-têtes HTTP, des paramètres d'URL ou dans le corps des requêtes, ce qui les rend adaptés aux applications mobiles, web, et API.
+    Sécurisé : Les tokens sont signés et peuvent être vérifiés par le serveur pour s'assurer qu'ils n'ont pas été altérés.
+    Scalabilité : Ils sont idéaux pour des architectures distribuées ou microservices, car le serveur n'a pas besoin de conserver des informations sur les sessions.
+
+5. Différence entre les sessions traditionnelles et les tokens JWT
+
+    Sessions traditionnelles :
+        Le serveur stocke les informations de session pour chaque utilisateur dans un stockage central (comme un cache ou une base de données).
+        À chaque requête, un identifiant de session est envoyé et le serveur récupère les informations correspondantes depuis le stockage.
+
+    JWT (JSON Web Tokens) :
+        Les informations sont contenues directement dans le jeton, signé et envoyé au client.
+        Le serveur n'a pas besoin de stocker l'état des sessions, car tout ce dont il a besoin pour authentifier l'utilisateur est contenu dans le JWT.
+
+6. Avantages des JWT sur les sessions traditionnelles
+
+    Pas de gestion de session côté serveur : Les JWT sont stateless, ce qui signifie que le serveur n'a pas besoin de gérer les sessions.
+    Scalabilité améliorée : Comme les jetons sont auto-contenus, il est plus facile de gérer plusieurs serveurs ou des microservices sans avoir à synchroniser l'état des sessions.
+    Utilisation dans les applications modernes : Ils sont adaptés aux API RESTful où chaque requête doit être authentifiée indépendamment.
